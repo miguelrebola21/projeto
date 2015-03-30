@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 
 use Request;
 
+
 class PageController extends Controller {
 
 	//
@@ -54,14 +55,13 @@ class PageController extends Controller {
 				return view('pages.contactos', compact($data));
 	}
 
-	public function store(){
-
-			$input=Request::all();
-			
+	public function store(Requests\ValidarCliente $request){
 
 			
 
-			cliente::create($input);
+			
+
+			cliente::create($request->all());
 
 			return redirect('home');
 	}
