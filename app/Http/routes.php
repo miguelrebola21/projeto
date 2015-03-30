@@ -11,9 +11,26 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
+Route::get('/', 'PageController@index');
 
-Route::get('home', 'HomeController@index');
+Route::get('home', 'PageController@index');
+
+Route::get('agencias', 'PageController@agencias');
+
+Route::get('empresa', 'PageController@empresa');
+
+Route::get('joinus', 'PageController@joinus');
+
+Route::get('faq', 'PageController@faq');
+
+Route::get('local', 'PageController@local');
+
+Route::get('servicos', 'PageController@servicos');
+
+Route::get('suport', 'PageController@suport');
+
+Route::get('contactos', 'PageController@contactos');
+
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
