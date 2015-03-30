@@ -1,9 +1,10 @@
 <?php namespace App\Http\Controllers;
 
+use App\cliente;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use Illuminate\Http\Request;
+use Request;
 
 class PageController extends Controller {
 
@@ -51,6 +52,18 @@ class PageController extends Controller {
 	public function contactos(){
                 $data="Contactos";
 				return view('pages.contactos', compact($data));
+	}
+
+	public function store(){
+
+			$input=Request::all();
+			
+
+			
+
+			cliente::create($input);
+
+			return redirect('home');
 	}
 
 

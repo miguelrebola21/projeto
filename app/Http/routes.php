@@ -31,6 +31,7 @@ Route::get('suport', 'PageController@suport');
 
 Route::get('contactos', 'PageController@contactos');
 
+Route::post('joinus','PageController@store');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
