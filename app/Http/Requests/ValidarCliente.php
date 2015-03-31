@@ -25,7 +25,11 @@ class ValidarCliente extends Request {
 			//
 
 			'nome' => 'required',
-			'bi' => 'required'
+			'bi' => 'required',
+			'telefone' => 'required',
+			'morada' => 'required',
+			'cp' => 'required',
+			'email'=> 'required'
 
 		];
 	}

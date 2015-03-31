@@ -60,7 +60,7 @@ class PageController extends Controller {
 			
 
 			
-
+ 
 			cliente::create($request->all());
 
 			return redirect('home');

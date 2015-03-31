@@ -7,11 +7,25 @@
 
   {!! Form::open(['url' => 'joinus']) !!}
 
-  		{!! Form::label('nome', 'Nome:') !!}
+  	{!! Form::label('nome', 'Nome:') !!}
 		{!! Form::text('nome') !!}
 		<br>
 		{!! Form::label('bi', 'BI:') !!}
 		{!! Form::text('bi') !!}
+    <br>
+    {!! Form::label('telefone', 'Telefone:') !!}
+    {!! Form::text('telefone') !!}
+    <br>
+    {!! Form::label('morada', 'Morada:') !!}
+    {!! Form::text('morada') !!}
+    <br>
+    {!! Form::label('cp', 'cp:') !!}
+    {!! Form::text('cp') !!}
+    <br>
+    {!! Form::label('email', 'E-mail:') !!}
+    {!! Form::text('email') !!}
+    
+
 
 		{!! Form::submit('Enviar aplicação')!!}
   {!! Form::close() !!}
