@@ -40,6 +40,10 @@ Route::post('login', ' PageController@dologin');
 Route::get('logout', 'PageController@dologout');
 
 Route::get('homebanking', 'HBController@index');
+Route::get('mainview', 'HBController@index');
+Route::get('cons', 'HBController@cons');
+Route::get('pay', 'HBController@pay');
+Route::get('transf', 'HBController@transf');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',

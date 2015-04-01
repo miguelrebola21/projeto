@@ -17,6 +17,33 @@ class HBController extends Controller {
 				return view('hbpages.homehb',compact('nome'));
 	}
 
+	public function cons(){
+
+				$homebanking=Auth::user();
+
+				$cliente=$homebanking->cliente();
+				$nome=$cliente->nome;
+				return view('hbpages.consultas',compact('nome'));
+	}
+	public function pay(){
+
+				$homebanking=Auth::user();
+
+				$cliente=$homebanking->cliente();
+				$nome=$cliente->nome;
+				return view('hbpages.pagamentos',compact('nome'));
+	}
+
+public function transf(){
+	$homebanking=Auth::user();
+
+				$cliente=$homebanking->cliente();
+				$nome=$cliente->nome;
+			
+				return view('hbpages.transferencias',compact('nome'));
+	}
+
+
 
 
 
