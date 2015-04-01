@@ -31,4 +31,9 @@ class homebanking extends Model implements AuthenticatableContract, CanResetPass
 	 */
 	protected $hidden = ['password', 'remember_token'];
 
+	public function cliente(){
+
+		return cliente::find($this->id_cliente);
+
+	} 
 }

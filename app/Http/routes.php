@@ -39,6 +39,8 @@ Route::post('login', ' PageController@dologin');
 
 Route::get('logout', 'PageController@dologout');
 
+Route::get('homebanking', 'HBController@index');
+
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',

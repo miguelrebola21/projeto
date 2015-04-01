@@ -21,7 +21,8 @@
 		<li><a href="local" > Localização</a></li>		
 		
 		@if (Auth::check())
-    <li><a href="logout"> Log out</a></li>
+    	<li><a href="logout"> Log out</a></li>
+    <li><a href="homebanking"> Homebanking</a></li>
     @else
     <li><a href="login" > Log In</a></li>	
 @endif		
