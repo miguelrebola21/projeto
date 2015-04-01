@@ -7,7 +7,7 @@
 	</head>
 	<body style="padding:100px;padding-top:10px;">
 
-		@include('auth\login')
+	
 	    
 		<ul>
 		<li><a href="agencias" > Agencias</a></li>
@@ -18,8 +18,16 @@
 		<li><h2><a href="home" > Home</a></h2></li>		
 		<li><a href="faq" > FAQ</a></li>
 		<li><a href="contactos" > Contactos</a></li>
-		<li><a href="local" > Localização</a></li>				
+		<li><a href="local" > Localização</a></li>		
+		
+		@if (Auth::check())
+    <li><a href="logout"> Log out</a></li>
+    @else
+    <li><a href="login" > Log In</a></li>	
+@endif		
 		</ul>
+		
+		
 		@yield('content')
 		</div>
 

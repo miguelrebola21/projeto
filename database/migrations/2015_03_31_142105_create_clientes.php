@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\Schema;
 
 class CreateClientes extends Migration {
 
@@ -20,7 +21,7 @@ class CreateClientes extends Migration {
 			$table->string('telefone');
 			$table->string('morada');
 			$table->string('cp');
-			$table->string('email');
+			$table->string('email')->unique();
 			$table->boolean('valido');
 		});
 	}

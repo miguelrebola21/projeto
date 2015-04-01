@@ -33,6 +33,12 @@ Route::get('contactos', 'PageController@contactos');
 
 Route::post('joinus','PageController@store');
 
+Route::get('login', 'PageController@showlogin');
+
+Route::post('login', ' PageController@dologin');
+
+Route::get('logout', 'PageController@dologout');
+
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',

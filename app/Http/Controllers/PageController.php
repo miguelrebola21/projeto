@@ -66,6 +66,14 @@ class PageController extends Controller {
 			return redirect('home');
 	}
 
+	public function showlogin(){
+				return view('auth.login');
+	}
+	public function dologout(){
+				return redirect('auth\logout');
+	}
+
+
 
 
 }
