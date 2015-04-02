@@ -36,4 +36,14 @@ class homebanking extends Model implements AuthenticatableContract, CanResetPass
 		return cliente::find($this->id_cliente);
 
 	} 
+	public function movimento($contasid){
+			return movimento::where('de','=',$contasid)->get();
+	}
+
+	public function cliente_conta($id){
+		return cliente_conta::where('clientesid','=',$id)->get('contasid');
+	} 
+
+
+
 }

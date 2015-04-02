@@ -13,13 +13,13 @@ class CreateContasClientes extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('clientes_contas', function(Blueprint $table)
+		Schema::create('cliente_conta', function(Blueprint $table)
 		{
 			$table->increments('id')->unsigned();
-			$table->integer('clientesid')->unsigned();
-		    $table->foreign('clientesid')->references('id')->on('clientes');
-		    $table->integer('contasid')->unsigned();
-		    $table->foreign('contasid')->references('id')->on('contas');
+			$table->integer('cliente_id')->unsigned();
+		    $table->foreign('cliente_id')->references('id')->on('clientes');
+		    $table->integer('conta_id')->unsigned();
+		    $table->foreign('conta_id')->references('id')->on('contas');
 		});
 	}
 
@@ -31,7 +31,7 @@ class CreateContasClientes extends Migration {
 	public function down()
 	{
 		//
-		Schema::drop('clientes_contas');
+		Schema::drop('cliente_conta');
 	}
 
 }
