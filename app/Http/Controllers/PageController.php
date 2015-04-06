@@ -56,10 +56,7 @@ class PageController extends Controller {
 	}
 
 	public function store(Requests\ValidarCliente $request){
-
-			
-
-			
+	
  
 			cliente::create($request->all());
 
