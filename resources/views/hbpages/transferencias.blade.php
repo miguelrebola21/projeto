@@ -1,7 +1,7 @@
 @extends ('hb')
 
 @section ('content')
-    {!! Form::open(['url' => 'transf'])  !!}
+    {!! Form::open(['url' => route('transf')])  !!}
 
 
 		Conta a ser Debitada:

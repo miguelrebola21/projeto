@@ -13,7 +13,7 @@
 
 Route::get('/', 'PageController@index');
 
-Route::get('home', 'PageController@index');
+Route::get('home', array('as' => 'home', 'uses' => 'PageController@index'));
 
 Route::get('agencias', 'PageController@agencias');
 
@@ -43,12 +43,21 @@ Route::get('logout', 'PageController@dologout');
 
 
 Route::get('homebanking', 'HBController@index');
-Route::get('/mainview', 'HBController@index');
-Route::get('/cons', 'HBController@cons');
-Route::post('/cons', 'HBController@applycons');
-Route::get('/pay', 'HBController@pay');
-Route::get('/transf', 'HBController@transf');
-Route::post('/transf', 'HBController@endtransf');
+Route::get('homebanking/mainview', array('as' => 'mainview', 'uses' => 'HBController@index'));
+Route::get('homebanking/cons', array('as' => 'cons', 'uses' => 'HBController@cons'));
+Route::post('homebanking/cons', array('as' => 'cons', 'uses' => 'HBController@applycons'));
+Route::get('homebanking/pagamentos/tele', array('as' => 'tele', 'uses' => 'HBController@tele'));
+Route::get('homebanking/pagamentos/fac', array('as' => 'fac', 'uses' => 'HBController@fac'));
+Route::get('homebanking/pagamentos/presta', array('as' => 'presta', 'uses' => 'HBController@presta'));
+Route::post('homebanking/pagamentos/tele', array('as' => 'tele', 'uses' => 'HBController@endtele'));
+Route::post('homebanking/pagamentos/fac', array('as' => 'fac', 'uses' => 'HBController@endfac'));
+Route::post('homebanking/pagamentos/presta', array('as' => 'presta', 'uses' => 'HBController@endpresta'));
+Route::get('homebanking/transf', array('as' => 'transf', 'uses' => 'HBController@transf'));
+Route::post('homebanking/transf', array('as' => 'transf', 'uses' => 'HBController@endtransf'));
+
+
+Route::get('funcionarios', array('as' => 'funcionarios', 'uses' => 'FunController@index'));
+
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',

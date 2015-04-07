@@ -15,14 +15,8 @@ tr {
 
 
 
-<? php
-   if ($compdata){
-   	echo $compdata;
-   }
- ?>
-   
 
- {!! Form::open(['url' => 'cons'])  !!}
+ {!! Form::open(['url' => route('cons')])  !!}
 	Descrição:
 	{!! Form::select('descricao', [
 	'T' => 'Todos os Movimentos',
@@ -42,14 +36,14 @@ tr {
    	'us' => 'ultima semana',
    	'um' => 'ultimo mês',
    	'usm' => 'ultimos 6 meses'
-   ]
+   ]  
 ) !!}
 	Tipo:
 	{!! Form::select('tipo', [
 	'a' => 'ambos',
    	'd' => 'Débito',
    	'c' => 'Crédito',
-   ]
+   ]  
 ) !!}
 
 <br>
@@ -73,12 +67,12 @@ tr {
 
 </tr>
 @endforeach
-
+	
   	</table>
   	<br>
   	<br>
-
-  			{!! Form::submit('Aplicar Filtros')!!}
-		{!! Form::reset('Limpar Filtros')!!}
+  	
+  	{!! Form::submit('Aplicar Filtros')!!}
+	{!! Form::reset('Limpar Filtros')!!}
   	{!! Form::close() !!}
 @stop

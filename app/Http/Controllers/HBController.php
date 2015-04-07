@@ -8,6 +8,7 @@ use App\cliente;
 use App\conta;
 use App\movimento;
 use App\correio;
+use App\entidade;
 use Carbon\Carbon;
 
 
@@ -151,31 +152,46 @@ public function setvars()
 						break;
 					}
 
-					 if ($tipo='d'){
-			 		 	$movimentos=movimento::where('tipo',$d)->whereIn('destino',$idcontas)->whereBetween('data', [$compdata, Carbon::now()])->get();	
+					 if ($tipo==='d'){
 
-			 		 }elseif ($tipo='c') {
-						 $movimentos=movimento::where('tipo',$d)->whereIn('origem',$idcontas)->whereBetween('data', [$compdata, Carbon::now()])->get();	
+					 	if ($d==='T'){
+					 	$movimentos=movimento::whereIn('origem',$idcontas)->whereBetween('data', [$compdata, Carbon::now()])->get();		
+					 	}else{
+			 		 	$movimentos=movimento::where('tipo',$d)->whereIn('origem',$idcontas)->whereBetween('data', [$compdata, Carbon::now()])->get();	
+			 		 		}
 
+
+			 		 }elseif ($tipo==='c') {
+
+			 		 		if ($d==='T'){
+					 	$movimentos=movimento::whereIn('destino',$idcontas)->whereBetween('data', [$compdata, Carbon::now()])->get();			
+					 	}else{
+						 $movimentos=movimento::where('tipo',$d)->whereIn('destino',$idcontas)->whereBetween('data', [$compdata, Carbon::now()])->get();	
+							}
 
 			 		 }else{
 
+							if ($d==='T'){
+					 	$movimentos=movimento::whereIn('origem',$idcontas)->whereBetween('data', [$compdata, Carbon::now()])->orWhereIn('destino',$idcontas)->get();			
+					 	}else{
 
-			 			$movimentos=movimento::where('tipo',$d)->whereIn('origem',$idcontas)->whereIn('destino',$idcontas)->whereBetween('data', [$compdata, Carbon::now()])->get();	
+			 			$movimentos=movimento::where('tipo',$d)->whereBetween('data', [$compdata, Carbon::now()])->whereIn('origem', $idcontas)->orWhereIn('destino', $idcontas)->get();	
 
+			 			}
 			 		}
 			 			
 
-			return view('hbpages.consultas',compact('nome','movimentos','compdata'));
+			return view('hbpages.consultas',compact('nome','movimentos','d','tipo','compdata','data'));
 	}
 
 
-	public function pay(){
 
-				$homebanking=Auth::user();
-
+		public function fac(){
+			$homebanking=Auth::user();
 				$cliente=$homebanking->cliente();
 				$nome=$cliente->nome;
+
+				$id=$cliente->id;
 				//dd($cliente->contas()->get());
 				$i=0;
 				$contas=$cliente->contas();
@@ -183,7 +199,181 @@ public function setvars()
 						$idcontas[$i]=($conta->id);
 						$i=$i+1;
 					}
-				return view('hbpages.pagamentos',compact('nome','idcontas'));
+
+			
+				
+				return view('hbpages.fac',compact('nome','idcontas'));
+	}
+	public function endfac(Requests\ValidarFac $request){
+			$homebanking=Auth::user();
+				$cliente=$homebanking->cliente();
+				$nome=$cliente->nome;
+
+				$id=$cliente->id;
+				//dd($cliente->contas()->get());
+				$i=0;
+				$contas=$cliente->contas();
+					foreach ($cliente->contas()->get() as $conta){
+						$idcontas[$i]=($conta->id);
+						$i=$i+1;
+					}
+
+
+
+
+				//$entidade=$request['destino'];
+				//$ent=entidade::where('id', $entidade)->get();
+				$ent=entidade::where('id', $request['destino'])->get()->first();
+				$entidade=$ent->contas()->get()->first();
+				
+				$idc=$entidade['id'];
+
+				$request['destino']=$idc;
+				$request['data']=Carbon::now();
+				$request['origem']=$idcontas[$request['origem']];
+				var_dump($request['origem']);
+				$request['tipo']='FA';
+
+				movimento::create($request->all());
+
+
+
+
+
+
+
+
+
+
+		
+			
+				return redirect(route('fac'));
+	}
+		public function presta(){
+			$homebanking=Auth::user();
+				$cliente=$homebanking->cliente();
+				$nome=$cliente->nome;
+
+				$id=$cliente->id;
+				//dd($cliente->contas()->get());
+				$i=0;
+				$contas=$cliente->contas();
+					foreach ($cliente->contas()->get() as $conta){
+						$idcontas[$i]=($conta->id);
+						$i=$i+1;
+					}
+
+			
+				return view('hbpages.presta',compact('nome','idcontas'));
+	}
+	public function endpresta(Requests\ValidarTele $request){
+			$homebanking=Auth::user();
+				$cliente=$homebanking->cliente();
+				$nome=$cliente->nome;
+
+				$id=$cliente->id;
+				//dd($cliente->contas()->get());
+				$i=0;
+				$contas=$cliente->contas();
+					foreach ($cliente->contas()->get() as $conta){
+						$idcontas[$i]=($conta->id);
+						$i=$i+1;
+					}
+
+
+				$ent=entidade::where('id', $request['destino'])->get()->first();
+				$entidade=$ent->contas()->get()->first();
+				
+				$idc=$entidade['id'];
+
+				$request['destino']=$idc;
+				$request['data']=Carbon::now();
+				$request['origem']=$idcontas[$request['origem']];
+				var_dump($request['origem']);
+				$request['tipo']='PR';
+
+				movimento::create($request->all());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				
+			
+				return redirect(route('presta'));
+	}
+		public function tele(){
+			$homebanking=Auth::user();
+				$cliente=$homebanking->cliente();
+				$nome=$cliente->nome;
+
+				$id=$cliente->id;
+				//dd($cliente->contas()->get());
+				$i=0;
+				$contas=$cliente->contas();
+					foreach ($cliente->contas()->get() as $conta){
+						$idcontas[$i]=($conta->id);
+						$i=$i+1;
+					}
+
+				
+			
+				return view('hbpages.tele',compact('nome','idcontas'));
+	}
+	public function endtele(Requests\ValidarTele $request){
+			$homebanking=Auth::user();
+				$cliente=$homebanking->cliente();
+				$nome=$cliente->nome;
+
+				$id=$cliente->id;
+				//dd($cliente->contas()->get());
+				$i=0;
+				$contas=$cliente->contas();
+					foreach ($cliente->contas()->get() as $conta){
+						$idcontas[$i]=($conta->id);
+						$i=$i+1;
+					}
+
+					$ent=entidade::where('id', $request['destino'])->get()->first();
+
+
+					$entidade=$ent->contas()->get()->first();
+				
+				$idc=$entidade['id'];
+
+				$request['destino']=$idc;
+				$request['data']=Carbon::now();
+				$request['origem']=$idcontas[$request['origem']];
+				var_dump($request['origem']);
+				$request['tipo']='TEL';
+
+				movimento::create($request->all());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				
+						return redirect(route('tele'));
+
 	}
 
 	public function transf(){
@@ -226,7 +416,7 @@ public function setvars()
 						
 				movimento::create($request->all());
 
-				return redirect('mainview');
+				return redirect(route('transf'));
 			}
 
 	

@@ -8,6 +8,14 @@ class conta extends Model {
 			
 	];
 	protected $table = 'contas';
+		public function entidades()
+   	{
+       return $this->belongsToMany('entidade');
+   	}
+   	public function entidades_conta()
+    {
+    	return $this->hasMany('entidades_contas');
+    }
 
 	public function clientes()
    	{
