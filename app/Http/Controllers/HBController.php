@@ -64,6 +64,7 @@ public function setvars()
 				$cliente=$homebanking->cliente();
 				$nome=$cliente->nome;
 				$id=$cliente->id;
+				$bi=$cliente->bi;
 				//dd($cliente->contas()->get());
 				$i=0;
 				$contas=$cliente->contas();
@@ -86,7 +87,7 @@ public function setvars()
 
 
 
-				return view('hbpages.homehb',compact('nome','movimentos','saldocontas','idcontas','correio'));
+				return view('hbpages.homehb',compact('nome','movimentos','saldocontas','idcontas','correio','bi'));
 	}
 
 	public function cons(){
@@ -417,6 +418,21 @@ public function setvars()
 				movimento::create($request->all());
 
 				return redirect(route('transf'));
+			}
+
+	public function matriz(){
+				
+				$homebanking=Auth::user();
+				$cliente=$homebanking->cliente();
+				$nome=$cliente->nome;
+				$bi=$cliente->bi;
+
+
+
+
+
+
+				return view('hbpages.matriz',compact('nome','bi'));
 			}
 
 	

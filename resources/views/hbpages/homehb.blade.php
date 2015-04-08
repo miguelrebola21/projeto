@@ -14,8 +14,15 @@ tr {
 }
 </style>
 
-<div class="correio">
-  <table >
+
+
+   {!!Form::open(['url' => route('matriz')])!!}  
+  {!!Form::hidden('bi',$bi)!!}
+
+  {!!Form::submit('Cartão Matriz M')!!} 
+  {!!Form::close()!!}
+
+  <table>
     <tr>
     <th>ID</th><th>Assunto</th><th>Mensagem</th><th>Origem</th><th>Destino</th>
     </tr>
@@ -40,18 +47,18 @@ tr {
  
  
 
- @foreach($movimentos as $mov)
+@for ($i = 0; $i < 5; $i++)
   <tr>
-      <td>{{$mov->id}}</td>
-      <td>{{$mov->origem}}</td>
-      <td>{{$mov->destino}}</td>
-      <td>{{$mov->valor}}</td>
-      <td>{{$mov->data}}</td>
-      <td>{{$mov->tipo}}</td>
-      <td>{{$mov->observacoes}}</td>
+      <td>{{$movimentos[$i]->id}}</td>
+      <td>{{$movimentos[$i]->origem}}</td>
+      <td>{{$movimentos[$i]->destino}}</td>
+      <td>{{$movimentos[$i]->valor}}</td>
+      <td>{{$movimentos[$i]->data}}</td>
+      <td>{{$movimentos[$i]->tipo}}</td>
+      <td>{{$movimentos[$i]->observacoes}}</td>
 
 </tr>
-@endforeach
+@endfor
 
 
   </table>

@@ -6,7 +6,17 @@
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	</head>
 	<body style="padding:100px;padding-top:10px;">
-
+	<style>
+td {
+    border: solid 2px lightgrey;
+}
+th {
+    border: solid 2px lightgrey;
+}
+tr {
+    border: solid 2px lightgrey;
+}
+</style>
 
 
 	
@@ -27,7 +37,7 @@
 
 		
 		@if (Auth::check())
-    <li><a href="logout"> Log out</a></li>
+    <li><a href="{{$url = route('logout')}}"> Log out</a></li>
      <li><a href="{{$url = route('home')}}"> HomePage</a></li>
     @else
     <li><a href="login" > Log In</a></li>	
