@@ -7,7 +7,7 @@
 		Conta a ser Debitada:
 	
 		 
-		{!! Form::select('origem') !!}
+		{!! Form::select('origem',$idcontas) !!}
 		<br>
   		{!! Form::label('destino', 'Nº de Conta de Destino:') !!}
 		{!! Form::text('destino') !!}

@@ -9,6 +9,7 @@ use App\conta;
 use App\movimento;
 use App\correio;
 use App\entidade;
+use App\Matriz;
 use Carbon\Carbon;
 
 
@@ -400,6 +401,7 @@ public function setvars()
 				$nome=$cliente->nome;
 
 				$id=$cliente->id;
+				$bi=$cliente->bi;
 				//dd($cliente->contas()->get());
 				$i=0;
 				$contas=$cliente->contas();
@@ -413,12 +415,12 @@ public function setvars()
 				
 
 				$request['data']=Carbon::now();
-
 						
-				movimento::create($request->all());
+				$mov=movimento::create($request->all());
+				$mov_id=$mov->id;
 
-				return redirect(route('transf'));
-			}
+			return view('hbpages.validation',compact('nome','bi','mov_id'));
+		}
 
 	public function matriz(){
 				
@@ -429,17 +431,36 @@ public function setvars()
 
 
 
-
-
-
 				return view('hbpages.matriz',compact('nome','bi'));
 			}
 
-	
+	public function testvalidation(Requests\ValidarValidation $request){
+		//request1 not posting
+		
+
+			var_dump($request);
+			$m= new Matriz;
+			$matriz_cliente=$m->test($request['bi']);
+
+			if ($matriz_cliente[$request['x']][$request['y']][$request['z']]===$request['valor']) {
+
+				movimento::where('id', $request['mov_id'])->update(array('valido' => 1));
+
+				
+				return redirect(route('mainview'));
+
+			}else{
+				$teste=true;
+				return view('hbpages.validation',compact('nome','bi','mov_id','teste'));
+			}
+
+			
 
 
 
 
+
+	}
 
 
 }

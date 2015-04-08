@@ -52,7 +52,8 @@ Route::post('homebanking/pagamentos/fac', array('as' => 'fac', 'uses' => 'HBCont
 Route::post('homebanking/pagamentos/presta', array('as' => 'presta', 'uses' => 'HBController@endpresta'));
 Route::get('homebanking/transf', array('as' => 'transf', 'uses' => 'HBController@transf'));
 Route::post('homebanking/transf', array('as' => 'transf', 'uses' => 'HBController@endtransf'));
-
+Route::get('validation', array('as' => 'validation', 'uses' => 'HBController@validation'));
+Route::post('validation', array('as' => 'validation', 'uses' => 'HBController@testvalidation'));
 
 Route::get('funcionarios', array('as' => 'funcionarios', 'uses' => 'FunController@index'));
 
