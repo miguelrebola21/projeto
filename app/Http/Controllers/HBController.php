@@ -73,12 +73,16 @@ public function setvars()
 						$idcontas[$i]=($conta->id);
 						$i=$i+1;
 					}
+
+					if (isset($idcontas)){
 				$j=0;
 
 					foreach ($cliente->contas()->get() as $saldo){
 						$saldocontas[$j]=($saldo->saldo);
 						$j=$j+1;
 					}
+
+
 				$movimentos=movimento::whereIn('origem', $idcontas)->orWhereIn('destino', $idcontas)->get();
 
 
@@ -90,7 +94,14 @@ public function setvars()
 				
 
 				return view('hbpages.homehb',compact('nome','movimentos','saldocontas','idcontas','correio','bi','message'));
+			
+			}else{
+
+				return view('hbpages.missingaccount');
+
+			}
 	}
+
 
 	public function cons(){
 

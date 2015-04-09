@@ -66,8 +66,13 @@ class PageController extends Controller {
 	public function showlogin(){
 				return view('auth.login');
 	}
+
 	public function dologout(){
 				return redirect('auth\logout');
+	}
+
+	public function signhb(){
+				return view('pages.signhb');
 	}
 
 

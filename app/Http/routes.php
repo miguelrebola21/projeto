@@ -39,6 +39,8 @@ Route::post('login', ' PageController@dologin');
 
 Route::get('homebanking/logout', array('as' => 'logout', 'uses' => 'PageController@dologout'));
 
+Route::get('joinhomebanking', array('as' => 'signhb', 'uses' => 'PageController@signhb'));
+
 Route::get('homebanking', 'HBController@index');
 Route::post('homebanking/mainview/matriz', array('as' => 'matriz', 'uses' => 'HBController@matriz'));
 Route::get('homebanking/mainview', array('as' => 'mainview', 'uses' => 'HBController@index'));

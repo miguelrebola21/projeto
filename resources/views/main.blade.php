@@ -19,9 +19,10 @@
 		<li><a href="faq" > FAQ</a></li>
 		<li><a href="contactos" > Contactos</a></li>
 		<li><a href="local" > Localização</a></li>		
+		<li><a href="suport" > Suporte</a></li>	
 		
 		@if (Auth::check())
-    	<li><a href="logout"> Log out</a></li>
+    	<li><a href="{{$url = route('logout')}}"> Log out</a></li>
     <li><a href="homebanking"> Homebanking</a></li>
     @else
     <li><a href="login" > Log In</a></li>	

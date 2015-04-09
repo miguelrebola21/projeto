@@ -22,7 +22,7 @@ class homebanking extends Model implements AuthenticatableContract, CanResetPass
 	 *
 	 * @var array
 	 */
-	protected $fillable = ['email', 'password'];
+	protected $fillable = ['id_cliente','email', 'password'];
 
 	/**
 	 * The attributes excluded from the model's JSON form.
