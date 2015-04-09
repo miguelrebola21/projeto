@@ -19,6 +19,9 @@ class cliente extends Model {
     {
     	return $this->hasMany('clientes_conta');
     }
+    public function Roles_Clientes(){
+        return $this->hasMany('Roles_Clientes');
+    }
     public function contas()
     {
         return $this->belongsToMany('App\conta');
@@ -34,6 +37,11 @@ class cliente extends Model {
        public function Suporte()
     {
         return $this->hasMany('App\Suporte');
+    }
+
+      public function roles()
+    {
+        return $this->hasMany('App\Roles');
     }
 	//
 

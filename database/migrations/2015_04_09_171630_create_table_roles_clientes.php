@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableRolesHomebankings extends Migration {
+class CreateTableRolesClientes extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,7 +12,7 @@ class CreateTableRolesHomebankings extends Migration {
 	 */
 	public function up()
     {
-        Schema::create('roles_homebankings',function (Blueprint $table) {
+        Schema::create('roles_clientes',function (Blueprint $table) {
 
                 $table->increments('id')->unsigned();
                 $table->integer('user_id')->unsigned();
@@ -31,7 +31,7 @@ class CreateTableRolesHomebankings extends Migration {
      */
     public function down()
     {
-        Schema::drop('roles_homebankings');
+        Schema::drop('roles_clientes');
     }
 
 }

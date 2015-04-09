@@ -8,6 +8,7 @@ use App\conta;
 use App\movimento;
 use App\correio;
 use App\entidade;
+use App\Roles;
 use App\Matriz;
 use Carbon\Carbon;
 use App\Http\Controllers\Flash;
@@ -60,9 +61,13 @@ public function setvars()
 
 	public function index(){
 
-		$homebanking=Auth::user();
+				$homebanking=Auth::user();
 
 				$cliente=$homebanking->cliente();
+
+				$role=$cliente->roles()->get();
+				dd($role);
+
 				$nome=$cliente->nome;
 				$id=$cliente->id;
 				$bi=$cliente->bi;
