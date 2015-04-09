@@ -1,7 +1,6 @@
 <?php namespace App\Http\Controllers;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
 use Illuminate\Http\Request;
 use Auth;
 use App\cliente;
@@ -11,6 +10,7 @@ use App\correio;
 use App\entidade;
 use App\Matriz;
 use Carbon\Carbon;
+use App\Http\Controllers\Flash;
 
 
 
@@ -87,8 +87,9 @@ public function setvars()
 
 
 
+				
 
-				return view('hbpages.homehb',compact('nome','movimentos','saldocontas','idcontas','correio','bi'));
+				return view('hbpages.homehb',compact('nome','movimentos','saldocontas','idcontas','correio','bi','message'));
 	}
 
 	public function cons(){
@@ -212,6 +213,7 @@ public function setvars()
 				$nome=$cliente->nome;
 
 				$id=$cliente->id;
+				$bi=$cliente->bi;
 				//dd($cliente->contas()->get());
 				$i=0;
 				$contas=$cliente->contas();
@@ -236,20 +238,10 @@ public function setvars()
 				var_dump($request['origem']);
 				$request['tipo']='FA';
 
-				movimento::create($request->all());
+				$mov=movimento::create($request->all());
+				$mov_id=$mov->id;
 
-
-
-
-
-
-
-
-
-
-		
-			
-				return redirect(route('fac'));
+			return view('hbpages.validation',compact('nome','bi','mov_id'));
 	}
 		public function presta(){
 			$homebanking=Auth::user();
@@ -274,6 +266,7 @@ public function setvars()
 				$nome=$cliente->nome;
 
 				$id=$cliente->id;
+				$bi=$cliente->bi;
 				//dd($cliente->contas()->get());
 				$i=0;
 				$contas=$cliente->contas();
@@ -294,7 +287,7 @@ public function setvars()
 				var_dump($request['origem']);
 				$request['tipo']='PR';
 
-				movimento::create($request->all());
+			
 
 
 
@@ -311,7 +304,10 @@ public function setvars()
 
 				
 			
-				return redirect(route('presta'));
+				$mov=movimento::create($request->all());
+				$mov_id=$mov->id;
+
+			return view('hbpages.validation',compact('nome','bi','mov_id'));
 	}
 		public function tele(){
 			$homebanking=Auth::user();
@@ -337,6 +333,7 @@ public function setvars()
 				$nome=$cliente->nome;
 
 				$id=$cliente->id;
+				$bi=$cliente->bi;
 				//dd($cliente->contas()->get());
 				$i=0;
 				$contas=$cliente->contas();
@@ -358,23 +355,24 @@ public function setvars()
 				var_dump($request['origem']);
 				$request['tipo']='TEL';
 
-				movimento::create($request->all());
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 				
-						return redirect(route('tele'));
+
+
+
+
+
+
+
+
+
+
+
+
+
+				$mov=movimento::create($request->all());
+				$mov_id=$mov->id;
+
+			return view('hbpages.validation',compact('nome','bi','mov_id'));
 
 	}
 
@@ -436,31 +434,51 @@ public function setvars()
 
 	public function testvalidation(Requests\ValidarValidation $request){
 		//request1 not posting
-		
-
-			var_dump($request);
+			//var_dump($request);
 			$m= new Matriz;
 			$matriz_cliente=$m->test($request['bi']);
-
-			if ($matriz_cliente[$request['x']][$request['y']][$request['z']]===$request['valor']) {
+			$mov=movimento::where('id', $request['mov_id'])->get()->first();
+			$origem=$mov['origem'];
+			$destino=$mov['destino'];
+			$valor=$mov['valor'];
+			$contao=conta::where('id',$origem)->get()->first();
+			$saldoo=$contao['saldo'];
+			if ($saldoo>=$valor){
+			if ($matriz_cliente[$request['x']][$request['y']][$request['z']]===(int)$request['valor']) {
 
 				movimento::where('id', $request['mov_id'])->update(array('valido' => 1));
+				
+				$newsaldoo=$saldoo-$valor;
+				conta::where('id',$origem)->update(array('saldo' => $newsaldoo));
 
+				$contad=conta::where('id',$destino)->get()->first();
+				$saldod=$contad['saldo'];
+				$newsaldod=$saldod+$valor;
+				conta::where('id',$destino)->update(array('saldo' => $newsaldod));
 				
 				return redirect(route('mainview'));
 
 			}else{
 				$teste=true;
+				$homebanking=Auth::user();
+				$cliente=$homebanking->cliente();
+				$nome=$cliente->nome;
+				$bi=$cliente->bi;
+				$mov_id=$request['mov_id'];
+
 				return view('hbpages.validation',compact('nome','bi','mov_id','teste'));
 			}
 
-			
+		}else{
 
 
-
+			\Flash::message('O seu saldo na conta '.$origem.' não é suficiente, experimente outra conta.');
+			movimento::where('id', $request['mov_id'])->delete();
+			return redirect(route('mainview'));
 
 
 	}
+		}
 
 
 }

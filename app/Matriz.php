@@ -13,9 +13,9 @@ class Matriz extends Model {
 		
    		for ($i=1;$i<8;$i++){
 
-   			for ($j=0;$j<7;$j++){
+   			for ($j=1;$j<8;$j++){
 
-   				for ($z=0;$z<3;$z++){
+   				for ($z=1;$z<4;$z++){
    					$matriz[$i][$j][$z]=rand(0,9);
    				}
    			}
