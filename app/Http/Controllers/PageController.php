@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\cliente;
+use App\Suporte;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -48,6 +49,17 @@ class PageController extends Controller {
 	public function suport(){
                 $data="Suporte";
 				return view('pages.suport', compact($data));
+	}	
+
+	public function sendsuport(Requests\ValidarSuporte $request){
+                
+
+                $sup=Suporte::create($request->all());
+                if ($request["id_cliente"]){
+                	$sup->id_cliente=$request['id_cliente'];
+                	$sup->save();
+                } 
+				return redirect('home');
 	}
 
 	public function contactos(){

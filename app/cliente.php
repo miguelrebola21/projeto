@@ -31,6 +31,10 @@ class cliente extends Model {
     {
         return $this->hasMany('App\correio');
     }
+       public function Suporte()
+    {
+        return $this->hasMany('App\Suporte');
+    }
 	//
 
 }

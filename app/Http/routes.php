@@ -20,6 +20,7 @@ Route::get('agencias', 'PageController@agencias');
 Route::get('empresa', 'PageController@empresa');
 
 Route::get('joinus', 'PageController@joinus');
+Route::post('joinus','PageController@store');
 
 Route::get('faq', 'PageController@faq');
 
@@ -28,10 +29,11 @@ Route::get('local', 'PageController@local');
 Route::get('servicos', 'PageController@servicos');
 
 Route::get('suport', 'PageController@suport');
+Route::post('suport', 'PageController@sendsuport');
 
 Route::get('contactos', 'PageController@contactos');
 
-Route::post('joinus','PageController@store');
+
 
 Route::get('login', 'PageController@showlogin');
 

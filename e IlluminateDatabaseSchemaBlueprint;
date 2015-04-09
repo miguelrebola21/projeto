@@ -1,0 +1,119 @@
+[33mcommit 78dc62c7fceb319d408f4ef071e81b249151e8a1[m
+Author: miguelrebola21 <miguelrebola21@gmail.com>
+Date:   Thu Apr 9 15:29:19 2015 +0100
+
+    Register to Homebanking
+
+[33mcommit 1b8694872ade4a21bfa77b0ded0e181ac9433490[m
+Author: miguelrebola21 <miguelrebola21@gmail.com>
+Date:   Thu Apr 9 12:52:29 2015 +0100
+
+    Validation working everywhere, user interface done.
+
+[33mcommit 329380396f09f81f04e49111ec10527eb10363c1[m
+Author: miguelrebola21 <miguelrebola21@gmail.com>
+Date:   Wed Apr 8 18:40:52 2015 +0100
+
+    Validation almost completed, only working in Transferencias
+
+[33mcommit dd19b0f6ce1d11fa350df6840464df2613d206cf[m
+Author: miguelrebola21 <miguelrebola21@gmail.com>
+Date:   Wed Apr 8 15:22:15 2015 +0100
+
+    Matriz system started, just missing the verification part
+
+[33mcommit 425b2499b864507bbe0316ab0bc2865efa7627fc[m
+Author: miguelrebola21 <miguelrebola21@gmail.com>
+Date:   Tue Apr 7 18:36:20 2015 +0100
+
+    user interface done, just missing the validation on transactions
+
+[33mcommit 8efe67f851571c959d656f38d5d9edec76e2fc32[m
+Author: miguelrebola21 <miguelrebola21@gmail.com>
+Date:   Mon Apr 6 18:22:06 2015 +0100
+
+    transferencias done , consultas not working (query problem), added content to pages, new tables in db
+
+[33mcommit ee0e3e7fbdc72b93a6477d6da792b8dc5019aa87[m
+Author: miguelrebola21 <miguelrebola21@gmail.com>
+Date:   Thu Apr 2 17:41:02 2015 +0100
+
+    Main-View done, new functions
+
+[33mcommit 356ff185cf9faee89e2b665dd7a98acde186ef31[m
+Author: miguelrebola21 <miguelrebola21@gmail.com>
+Date:   Wed Apr 1 18:40:38 2015 +0100
+
+    new pages added
+
+[33mcommit 790f7e57b9bf1e8482f2c195e230bcbad4902227[m
+Author: miguelrebola21 <miguelrebola21@gmail.com>
+Date:   Wed Apr 1 18:14:34 2015 +0100
+
+    new files
+
+[33mcommit 46fb003f265d79e1d42d9e2a8a82f19f86a2986f[m
+Author: miguelrebola21 <miguelrebola21@gmail.com>
+Date:   Wed Apr 1 18:14:14 2015 +0100
+
+    homebanking home-page created
+
+[33mcommit 99c746dd3b2ec0d39822997741ed3ece603efb90[m
+Author: miguelrebola21 <miguelrebola21@gmail.com>
+Date:   Wed Apr 1 16:41:03 2015 +0100
+
+    nothing
+
+[33mcommit c16cd49a168323af54d0c08306673064c786ed51[m
+Author: miguelrebola21 <miguelrebola21@gmail.com>
+Date:   Wed Apr 1 16:40:19 2015 +0100
+
+    Log in working! new database structure
+
+[33mcommit 84834a7eea279a72be8939b4c9b218fbbe9ea754[m
+Author: miguelrebola21 <miguelrebola21@gmail.com>
+Date:   Tue Mar 31 18:45:13 2015 +0100
+
+    log in (still not working)
+
+[33mcommit f64971ffdb31aff449895b9db867f65e7a7a3f30[m
+Author: miguelrebola21 <miguelrebola21@gmail.com>
+Date:   Tue Mar 31 17:22:26 2015 +0100
+
+    test
+
+[33mcommit b132ff37c960ce6f6bd2e033675fa4948075e70f[m
+Author: miguelrebola21 <miguelrebola21@gmail.com>
+Date:   Tue Mar 31 17:20:02 2015 +0100
+
+    New db conection, more legit forms, login form implementation (still not working)
+
+[33mcommit 6961debd5cbbb06a39f8ab02e1db548a51194678[m
+Author: miguelrebola21 <miguelrebola21@gmail.com>
+Date:   Mon Mar 30 19:12:55 2015 +0100
+
+    Error report added
+
+[33mcommit 96209d27a59a5442e5ac4f2894f0144a5dc23c78[m
+Author: miguelrebola21 <miguelrebola21@gmail.com>
+Date:   Mon Mar 30 17:02:32 2015 +0100
+
+    Database connection + joinus inserting into
+
+[33mcommit bebb69847c2f1667f07fe03eb22e7dec4c45bd32[m
+Author: miguelrebola21 <miguelrebola21@gmail.com>
+Date:   Mon Mar 30 15:30:34 2015 +0100
+
+    new files
+
+[33mcommit 36e87dfd93541d6af7db80dc4cb3ad7b2c21e96b[m
+Author: miguelrebola21 <miguelrebola21@gmail.com>
+Date:   Mon Mar 30 15:30:05 2015 +0100
+
+    Navegation working, basic stuff done
+
+[33mcommit 6ce3695dd662c12efd31e91af6ece2b24005beec[m
+Author: miguelrebola21 <miguelrebola21@gmail.com>
+Date:   Mon Mar 30 14:25:26 2015 +0100
+
+    initial commit

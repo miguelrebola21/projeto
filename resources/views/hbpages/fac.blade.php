@@ -15,8 +15,8 @@
 		{!! Form::label('observacoes', 'Referência presente na factura:') !!}
 		{!! Form::text('observacoes') !!}
 	    <br>
-		{!! Form::label('valor', 'Valor:') !!}
-		{!! Form::text('valor') !!}
+		{!! Form::label('valor', 'Valor:') 	!!}
+		{!! Form::text('valor') 			!!}
 		<br>
 		{!! Form::submit('Enviar aplicação')!!}
   	{!! Form::close() !!}
