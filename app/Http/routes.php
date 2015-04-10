@@ -43,6 +43,10 @@ Route::get('homebanking/logout', array('as' => 'logout', 'uses' => 'PageControll
 
 Route::get('joinhomebanking', array('as' => 'signhb', 'uses' => 'PageController@signhb'));
 
+
+
+Route::group(array('before' => 'auth'), function() {
+
 Route::get('homebanking', 'HBController@index');
 Route::post('homebanking/mainview/matriz', array('as' => 'matriz', 'uses' => 'HBController@matriz'));
 Route::get('homebanking/mainview', array('as' => 'mainview', 'uses' => 'HBController@index'));
@@ -62,8 +66,16 @@ Route::post('homebanking/transf', array('as' => 'transf', 'uses' => 'HBControlle
 Route::get('validation', array('as' => 'validation', 'uses' => 'HBController@validation'));
 Route::post('validation', array('as' => 'validation', 'uses' => 'HBController@testvalidation'));
 
+Route::get('admin/clientes', array('as' => 'a_clientes', 'uses' => 'AdminController@clientes'));
+Route::get('admin/clientes/edit/{id?}', array('as' => 'edit_clientes', 'uses' => 'AdminController@editclientes'));
+Route::post('admin/clientes/update', array('as' => 'update_clientes', 'uses' => 'AdminController@updateclientes'));
+Route::get('admin/contas', array('as' => 'a_contas', 'uses' => 'AdminController@contas'));
+Route::post('admin/contas/update', array('as' => 'update_contas', 'uses' => 'AdminController@updatecontas'));
+Route::get('admin/contas/edit/{id?}', array('as' => 'edit_contas', 'uses' => 'AdminController@editcontas'));
+Route::get('admin/homebanking', array('as' => 'a_homebankings', 'uses' => 'AdminController@homebankings'));
+Route::get('admin/suporte', array('as' => 'a_suporte', 'uses' => 'AdminController@suporte'));
 
-
+});
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',

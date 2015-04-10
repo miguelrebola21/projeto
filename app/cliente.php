@@ -44,6 +44,5 @@ class cliente extends Model {
     {
         return $this->belongsToMany('App\Roles');
     }
-	//
 
 }

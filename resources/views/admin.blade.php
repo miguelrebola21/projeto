@@ -37,10 +37,10 @@ tr {
 		</li>
 		<hr>
 		<li>Zona de Administrador</li>
-		<li><a href="">Clientes</a></li>
-		<li><a href="">Contas</a></li>
-		<li><a href="">Homebankings</a></li>
-		<li><a href="">Suporte</a></li>
+		<li><a href="{{$url = route('a_clientes')}}">Clientes</a></li>
+		<li><a href="{{$url = route('a_contas')}}">Contas</a></li>
+		<li><a href="{{$url = route('a_homebankings')}}">Homebankings</a></li>
+		<li><a href="{{$url = route('a_suporte')}}">Suporte</a></li>
 
 		<hr>
 		
