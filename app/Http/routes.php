@@ -46,6 +46,9 @@ Route::get('joinhomebanking', array('as' => 'signhb', 'uses' => 'PageController@
 Route::get('homebanking', 'HBController@index');
 Route::post('homebanking/mainview/matriz', array('as' => 'matriz', 'uses' => 'HBController@matriz'));
 Route::get('homebanking/mainview', array('as' => 'mainview', 'uses' => 'HBController@index'));
+Route::get('homebanking/sendcorreio', array('as' => 'sendcorreio', 'uses' => 'HBController@sendcorreio'));
+Route::post('homebanking/sendcorreio', array('as' => 'sendcorreio', 'uses' => 'HBController@storecorreio'));
+
 Route::get('homebanking/cons', array('as' => 'cons', 'uses' => 'HBController@cons'));
 Route::post('homebanking/cons', array('as' => 'cons', 'uses' => 'HBController@applycons'));
 Route::get('homebanking/pagamentos/tele', array('as' => 'tele', 'uses' => 'HBController@tele'));
@@ -59,7 +62,7 @@ Route::post('homebanking/transf', array('as' => 'transf', 'uses' => 'HBControlle
 Route::get('validation', array('as' => 'validation', 'uses' => 'HBController@validation'));
 Route::post('validation', array('as' => 'validation', 'uses' => 'HBController@testvalidation'));
 
-Route::get('funcionarios', array('as' => 'funcionarios', 'uses' => 'FunController@index'));
+
 
 
 Route::controllers([

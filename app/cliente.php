@@ -19,7 +19,8 @@ class cliente extends Model {
     {
     	return $this->hasMany('clientes_conta');
     }
-    public function Roles_Clientes(){
+    public function roles_clientes()
+    {
         return $this->hasMany('Roles_Clientes');
     }
     public function contas()
@@ -41,7 +42,7 @@ class cliente extends Model {
 
       public function roles()
     {
-        return $this->hasMany('App\Roles');
+        return $this->belongsToMany('App\Roles');
     }
 	//
 

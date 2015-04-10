@@ -12,7 +12,7 @@ class Roles extends Model {
 
 	public function cliente(){
 
-    	return $this->hasMany('cliente');
+    	return $this->BelongsToMany('App\cliente');
 	}
 	  public function Roles_Clientes(){
         return $this->hasMany('Roles_Clientes');

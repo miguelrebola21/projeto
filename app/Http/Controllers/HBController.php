@@ -18,47 +18,6 @@ use App\Http\Controllers\Flash;
 class HBController extends Controller {
 
 	//
-
-	public $call;
-	public $user;
-
-public function __construct()
-{
-
-$this->beforeFilter('@setvars', ['only' => [
-'endtransf',
-]]);
-
-}
-
-
-public function setvars()
-{
-		$homebanking=Auth::user();
-
-				$cliente=$homebanking->cliente();
-				$nome=$cliente->nome;
-				$id=$cliente->id;
-				//dd($cliente->contas()->get());
-				$i=0;
-				$contas=$cliente->contas();
-					foreach ($cliente->contas()->get() as $conta){
-						$idcontas[$i]=($conta->id);
-						$i=$i+1;
-					}
-				$j=0;
-
-
-  }
-
-
- 
-
-
-
-
-
-
 	public function index(){
 
 				$homebanking=Auth::user();
@@ -66,12 +25,23 @@ public function setvars()
 				$cliente=$homebanking->cliente();
 
 				$role=$cliente->roles()->get();
-				dd($role);
+				$k=0;
+				foreach ($role as $r){
+						$idroles[$k]=($r->id);
+						$k=$k+1;
+					}
+				$max_role=max($idroles);
+
+				
 
 				$nome=$cliente->nome;
 				$id=$cliente->id;
 				$bi=$cliente->bi;
+
+
 				//dd($cliente->contas()->get());
+
+
 				$i=0;
 				$contas=$cliente->contas();
 					foreach ($cliente->contas()->get() as $conta){
@@ -94,19 +64,58 @@ public function setvars()
 				$correio=correio::whereIn('de',[$id])->orWhereIn('para',[$id])->get();
 
 
+				switch($max_role){
 
+				case 1:
+				return view('hbpages.homehb',compact('nome','movimentos','saldocontas','idcontas','correio','bi'));
+				break;
 
-				
+				case 2:
+				case 3:
+				case 4:
+				return view('hbpages.funchomehb',compact('nome','movimentos','saldocontas','idcontas','correio','bi'));
+				break;
 
-				return view('hbpages.homehb',compact('nome','movimentos','saldocontas','idcontas','correio','bi','message'));
+				case 5:
+				return view('hbpages.adminhomehb',compact('nome','movimentos','saldocontas','idcontas','correio','bi'));
+				break;
+
+				default:
+				return view('hbpages.homehb',compact('nome','movimentos','saldocontas','idcontas','correio','bi'));
+				break;
+
+				}
 			
 			}else{
 
-				return view('hbpages.missingaccount');
+					return view('hbpages.missingaccount');
 
 			}
 	}
 
+	public function sendcorreio(){
+		$homebanking=Auth::user();
+
+		$cliente=$homebanking->cliente();
+		$nome=$cliente->nome;
+		$id=$cliente->id;
+
+		return view('hbpages.sendcorreio',compact('nome'));
+
+	}
+
+	public function storecorreio(Requests\ValidarCorreio $request){
+		$homebanking=Auth::user();
+		$cliente=$homebanking->cliente();
+		$nome=$cliente->nome;
+		$id=$cliente->id;
+		//dd($request);
+		$request['de']=$id;
+
+		$cor=correio::create($request->all());
+		return redirect(route('mainview'));
+
+	}
 
 	public function cons(){
 

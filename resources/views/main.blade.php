@@ -20,7 +20,7 @@
 		<li><a href="contactos" > Contactos</a></li>
 		<li><a href="local" > Localização</a></li>		
 		<li><a href="suport" > Suporte</a></li>	
-		
+		<hr>
 		@if (Auth::check())
     	<li><a href="{{$url = route('logout')}}"> Log out</a></li>
     <li><a href="homebanking"> Homebanking</a></li>

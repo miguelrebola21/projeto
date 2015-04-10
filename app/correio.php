@@ -5,7 +5,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class correio extends Model {
 	protected $fillable = [     
-			
+		'de',
+		'para',
+		'assunto',
+		'msg'
 	];
 	protected $table = 'correio';
 

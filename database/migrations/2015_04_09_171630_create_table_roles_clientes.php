@@ -12,13 +12,13 @@ class CreateTableRolesClientes extends Migration {
 	 */
 	public function up()
     {
-        Schema::create('roles_clientes',function (Blueprint $table) {
+        Schema::create('cliente_roles',function (Blueprint $table) {
 
                 $table->increments('id')->unsigned();
-                $table->integer('user_id')->unsigned();
-                $table->integer('role_id')->unsigned();
-                $table->foreign('role_id')->references('id')->on('roles');
-                $table->foreign('user_id')->references('id')->on('clientes');
+                $table->integer('cliente_id')->unsigned();
+                $table->integer('roles_id')->unsigned();
+                $table->foreign('roles_id')->references('id')->on('roles');
+                $table->foreign('cliente_id')->references('id')->on('clientes');
             
             }
         );
@@ -31,7 +31,7 @@ class CreateTableRolesClientes extends Migration {
      */
     public function down()
     {
-        Schema::drop('roles_clientes');
+        Schema::drop('cliente_roles');
     }
 
 }

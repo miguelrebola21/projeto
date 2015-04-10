@@ -22,6 +22,7 @@ tr {
 	
 	    <h3 style="float:right;">Seja bem-vindo Sr. {{$nome}}</h3>
 		<ul>
+		<li>Zona de Cliente</li>
 		<li><a href="{{$url = route('mainview')}}"> Vista Geral</a></li>
 		<li><a href="{{$url = route('sendcorreio')}}"> Enviar Correio</a></li>
 		<li><a href="{{$url = route('cons')}}">Consultas</a></li>
@@ -34,8 +35,15 @@ tr {
             </ul>	
 
 		</li>
+		<hr>
+		<li>Zona de Administrador</li>
+		<li><a href="">Clientes</a></li>
+		<li><a href="">Contas</a></li>
+		<li><a href="">Homebankings</a></li>
+		<li><a href="">Suporte</a></li>
 
 		<hr>
+		
 		@if (Auth::check())
     <li><a href="{{$url = route('logout')}}"> Log out</a></li>
      <li><a href="{{$url = route('home')}}"> HomePage</a></li>
