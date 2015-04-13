@@ -15,6 +15,6 @@
       <td><a href="{{ route('edit_contas', $con->id ) }}">Editar</a></td>
 </tr>
 @endforeach
-
+  <a href="{{ route('add_contas') }}">Adicionar Conta</a>
 </table>
 @stop

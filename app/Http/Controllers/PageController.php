@@ -2,6 +2,7 @@
 
 use App\cliente;
 use App\Suporte;
+use App\Roles_Clientes;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -70,7 +71,9 @@ class PageController extends Controller {
 	public function store(Requests\ValidarCliente $request){
 	
  
-			cliente::create($request->all());
+			$cli=cliente::create($request->all());
+
+			Roles_Clientes::create(array('cliente_id' => $cli->id, 'roles_id' => 1));
 
 			return redirect('home');
 	}

@@ -6,11 +6,13 @@ use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
-class clientes_conta extends Model implements AuthenticatableContract, CanResetPasswordContract {
+class clientes_conta extends Model{
 	protected $fillable = [     
+    'conta_id',
+    'cliente_id'
 			
 	];
-	protected $table = 'clientes_contas';
+	protected $table = 'cliente_conta';
 
 	 public function cliente()
     {

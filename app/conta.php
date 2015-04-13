@@ -4,7 +4,12 @@ use Illuminate\Database\Eloquent\Model;
 
 
 class conta extends Model {
-	protected $fillable = [     
+	protected $fillable = [   
+    'pin',
+    'tipo',
+    'agencia',
+    'saldo'
+
 			
 	];
 	protected $table = 'contas';

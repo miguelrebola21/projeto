@@ -24,7 +24,56 @@ class RouteServiceProvider extends ServiceProvider {
 	{
 		parent::boot($router);
 
+		\Route::filter('require_admin', function(){
+		
+		$homebanking=\Auth::user();
+
+		$cliente=$homebanking->cliente();
+
+		$role=$cliente->roles()->get();
+		$k=0;
+		foreach ($role as $r){
+			$idroles[$k]=($r->id);
+			$k=$k+1;
+		}
+		$max_role=max($idroles);
+
+
+		if ($max_role===5){
+		  
+
+			
 		//
+		}else{	
+			\Flash::message('Não tem permissões.');
+			return \Redirect::guest('home');
+		}
+		});
+
+
+
+
+		\Route::filter('auth', function(){
+		if (\Auth::guest()) {
+
+		if (\Request::ajax())
+
+		{
+
+		$response = array( 'success' => false, 'status' => 'You do not have access to this section');
+
+		return \Response::json($response)->setCallback(Input::get('callback'));
+		} else {
+
+		\Flash::message('Não tem permissões.');
+		return \Redirect::guest('home');
+		}
+		}
+
+
+		//
+		});
+
 	}
 
 	/**
