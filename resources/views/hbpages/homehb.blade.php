@@ -24,10 +24,10 @@ tr {
 
 
 
-   {!!Form::open(['url' => route('matriz')])!!}  
+  {!!Form::open(['url' => route('matriz')])!!}  
   {!!Form::hidden('bi',$bi)!!}
 
-  {!!Form::submit('Cartão Matriz M')!!} 
+  {!!Form::submit(array('value' => 'Cartão Matriz M' , 'class' => 'btn-success'))!!} 
   {!!Form::close()!!}
 
   <table>

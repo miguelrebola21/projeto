@@ -27,7 +27,7 @@ tr {
    {!!Form::open(['url' => route('matriz')])!!}  
   {!!Form::hidden('bi',$bi)!!}
 
-  {!!Form::submit('Cartão Matriz M')!!} 
+  {!!Form::submit('Cartão Matriz M' ,array('class' => 'btn btn-success'))!!} 
   {!!Form::close()!!}
 
   <table>

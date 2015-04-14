@@ -1,0 +1,31 @@
+@import "variables";
+
+
+.navbar {
+	background-color: $cor;
+}
+.navbar .navbar-brand{
+	color:white;
+}
+#sidebardireita{
+	//border-right-style:solid;
+	//border-right-color:black;	
+	width:15%;
+
+}
+.nav.esquerda a:hover{
+	-moz-border-radius-topleft: 10px;
+  -moz-border-radius-topright: 10px;
+  -moz-border-radius-bottomright: 10px;
+  -moz-border-radius-bottomleft: 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+	background-color: $hover;
+	color:white;
+	
+}
+
+.logo img{
+	width:100px;
+	heigth:100px;
+}
