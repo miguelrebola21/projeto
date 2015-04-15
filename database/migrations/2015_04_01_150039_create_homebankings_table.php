@@ -21,7 +21,7 @@ class CreateHomebankingsTable extends Migration {
 				$table->foreign('email')->references('email')->on('clientes');
 				$table->string('password');
 				$table->rememberToken();
-				$table->boolean('valido');
+				$table->binary('valido');
 		});
 	}
 

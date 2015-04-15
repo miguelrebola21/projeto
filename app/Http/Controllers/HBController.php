@@ -58,7 +58,7 @@ class HBController extends Controller {
 					}
 
 
-				$movimentos=movimento::whereIn('origem', $idcontas)->orWhereIn('destino', $idcontas)->get();
+				$movimentos=movimento::whereIn('origem', $idcontas)->orWhereIn('destino', $idcontas)->where('valido',1)->get();
 
 
 				$correio=correio::whereIn('de',[$id])->orWhereIn('para',[$id])->get();

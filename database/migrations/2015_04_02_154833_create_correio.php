@@ -21,7 +21,7 @@ class CreateCorreio extends Migration {
 			$table->foreign('de')->references('id')->on('clientes');
 			$table->integer('para')->unsigned();
 			$table->foreign('para')->references('id')->on('clientes');
-			$table->boolean('valido');
+			$table->binary('valido');
 			});
 	}
 

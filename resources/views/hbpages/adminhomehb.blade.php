@@ -23,13 +23,15 @@ tr {
 @endif
 
 
-
+@section ('matriz')
    {!!Form::open(['url' => route('matriz')])!!}  
   {!!Form::hidden('bi',$bi)!!}
 
-  {!!Form::submit('Cartão Matriz M' ,array('class' => 'btn btn-success'))!!} 
+  {!!Form::submit('Cartão Matriz M' ,array('class' => 'btn btn-success hb'))!!} 
   {!!Form::close()!!}
+@stop
 
+ <h3> Mensagens </h3>
   <table>
     <tr>
     <th>ID</th><th>Assunto</th><th>Mensagem</th><th>Origem</th><th>Destino</th>
@@ -43,11 +45,8 @@ tr {
       <td>{{$cor->para}}</td>
 </tr>
 @endforeach
-
 </table>
-
-</div>
-<div class="movimentos">
+<h3> Movimentos </h3>
   <table >
     <tr>
     <th>Id</th>    <th>Origem</th>    <th>Destino</th>    <th>Valor</th>    <th>Data</th>    <th>Tipo</th> <th>Observações</th>
@@ -70,11 +69,8 @@ tr {
 
 
   </table>
-</div>
 
-
-
-<div class="saldo">
+<h3> Contas </h3>
   
  <table >
     <tr>
@@ -89,7 +85,7 @@ tr {
 
 
 </tr>
-    @endfor
+@endfor
 </table>
-</div>    
+ 
 @stop

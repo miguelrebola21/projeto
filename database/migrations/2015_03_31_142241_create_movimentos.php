@@ -23,7 +23,7 @@ class CreateMovimentos extends Migration {
             $table->timestamp('data');
             $table->string('tipo');
             $table->string('observacoes');
-
+            $table->binary('valido');
             $table->foreign('destino')->references('id')->on('contas');
             $table->foreign('origem')->references('id')->on('contas');
 		});

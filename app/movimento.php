@@ -12,7 +12,8 @@ class movimento extends Model {
 			'valor',
 			'data',
 			'tipo',
-			'observacoes'
+			'observacoes',
+			'valido'
 	];
 
 	//
