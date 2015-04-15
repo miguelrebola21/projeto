@@ -23,7 +23,7 @@ tr {
   color: white;
 }
 .mid {
-  background-image: url("../../resources/assets/images/golden_gate.jpg");
+  background-image: url("../resources/assets/images/golden_gate.jpg");
 }
 .nav.esquerda a:hover {
   -moz-border-radius-topleft: 10px;
