@@ -14,7 +14,7 @@ class PageController extends Controller {
 	//
 	public function index(){
                 $data="Bem Vindo";
-				return view('pages.home', compact($data));
+				echo "ola ola";
 	}
 
 	public function agencias(){
