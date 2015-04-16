@@ -24,9 +24,6 @@ tr {
 .navbar .navbar-brand{
 	color:white;
 }
-.mid{
-	background-image: url("../../assets/images/golden_gate.jpg");
-}
 .nav.esquerda a:hover{
 	-moz-border-radius-topleft: 10px;
     -moz-border-radius-topright: 10px;
@@ -48,6 +45,7 @@ html, body {
 	position: absolute;	
 	min-height:90%;
 	min-width:100%;
+	background-image: url("../../assets/images/golden_gate.jpg");
 }
     ul li ul{
         display: none;
