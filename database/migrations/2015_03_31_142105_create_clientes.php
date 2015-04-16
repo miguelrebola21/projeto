@@ -13,7 +13,6 @@ class CreateClientes extends Migration {
 	 */
 	public function up()
 	{
-		public static $timestamps = false;
 		Schema::create('clientes', function(Blueprint $table)
 		{	
 
@@ -25,6 +24,8 @@ class CreateClientes extends Migration {
 			$table->string('cp');
 			$table->string('email')->unique();
 			$table->boolean('valido');
+			$table->timestamp('created_at');
+			$table->timestamp('updated_at');
 		});
 	}
 

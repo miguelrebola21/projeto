@@ -16,7 +16,8 @@ class CreateTableRoles extends Migration {
                 
                 $table->increments('id')->unsigned();
                 $table->string('name');
-
+                $table->timestamps('created_at');
+            $table->timestamps('updated_at');
             }
         );
     }

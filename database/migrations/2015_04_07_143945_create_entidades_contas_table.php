@@ -19,6 +19,8 @@ class CreateEntidadesContasTable extends Migration {
 		    $table->foreign('entidade_id')->references('id')->on('entidades');
 		    $table->integer('conta_id')->unsigned();
 		    $table->foreign('conta_id')->references('id')->on('contas');
+				$table->timestamps('created_at');
+			$table->timestamps('updated_at');
 		});
 	}
 
