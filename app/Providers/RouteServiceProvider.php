@@ -39,7 +39,7 @@ class RouteServiceProvider extends ServiceProvider {
 		$max_role=max($idroles);
 
 
-		if ($max_role===5){
+		if ($max_role===42){
 		  
 
 			
