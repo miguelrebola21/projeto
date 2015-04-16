@@ -20,8 +20,6 @@ class CreateContas extends Migration {
 			$table->string('tipo');
 			$table->integer('agencia');
 			$table->decimal('saldo',10,2);
-				$table->timestamps('created_at');
-			$table->timestamps('updated_at');
 		});
 	}
 
