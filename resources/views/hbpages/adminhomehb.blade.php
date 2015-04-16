@@ -54,18 +54,19 @@ tr {
  
  
 
-@for ($i = 0; $i < 5; $i++)
+@foreach($movimentos as $mov)
   <tr>
-      <td>{{$movimentos[$i]->id}}</td>
-      <td>{{$movimentos[$i]->origem}}</td>
-      <td>{{$movimentos[$i]->destino}}</td>
-      <td>{{$movimentos[$i]->valor}}</td>
-      <td>{{$movimentos[$i]->data}}</td>
-      <td>{{$movimentos[$i]->tipo}}</td>
-      <td>{{$movimentos[$i]->observacoes}}</td>
+      <td>{{$mov->id}}</td>
+      <td>{{$mov->origem}}</td>
+      <td>{{$mov->destino}}</td>
+      <td>{{$mov->valor}}</td>
+      <td>{{$mov->data}}</td>
+      <td>{{$mov->tipo}}</td>
+      <td>{{$mov->observacoes}}</td>
 
 </tr>
-@endfor
+@endforeach
+
 
 
   </table>

@@ -52,7 +52,6 @@ tr {
     </tr>
  
  
-
 @foreach($movimentos as $mov)
   <tr>
       <td>{{$mov->id}}</td>
