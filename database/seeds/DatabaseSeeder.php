@@ -6,9 +6,9 @@ use App\cliente;
 use App\conta;
 use App\homebanking;
 use App\clientes_conta;
-use App\suporte;
+use App\Suporte;
 use App\correio;
-use App\roles;
+use App\Roles;
 use App\clientes_contas;
 use App\Roles_Clientes;
 
