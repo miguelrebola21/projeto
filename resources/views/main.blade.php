@@ -52,7 +52,7 @@
 
      </div> 
    </nav>
-<div class="mid">
+<div class="mid" style="background-image: url('{{asset('images/golden_gate.jpg')}}'')">
   <div class="container-fluid ">
       <div class="row">
       <div class="row placeholders">
