@@ -33,7 +33,7 @@ class DatabaseSeeder extends Seeder {
 		$con=conta::create(array('pin' => '1234', 'tipo' => 'Particular', 'agencia' => '1', 'saldo' => '1000'));
 		$idcon=$con->id;
 		clientes_conta::create(array('conta_id' => $idcon, 'cliente_id' => $id));
-		homebanking::create(array('id_cliente' => $id, 'email' => 'miguelrebola21@gmail.com' , 'password' => '$2y$10$u7/SLIT/S4D4tACruWtvoeJYjNKEJ/QswoV72heNR00m80XLki7LK' , 'valido' => '1'));
+		homebanking::create(array('id_cliente' => $id, 'email' => 'miguelrebola21@gmail.com' , 'password' => password_hash('password',PASSWORD_DEFAULT) , 'valido' => '1'));
 
 	}
 
