@@ -24,8 +24,8 @@ class CreateClientes extends Migration {
 			$table->string('cp');
 			$table->string('email')->unique();
 			$table->boolean('valido');
-			$table->timestamp('created_at');
-			$table->timestamp('updated_at');
+			$table->timestamps('created_at');
+			$table->timestamps('updated_at');
 		});
 	}
 

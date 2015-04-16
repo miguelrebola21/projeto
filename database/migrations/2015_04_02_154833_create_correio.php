@@ -22,8 +22,7 @@ class CreateCorreio extends Migration {
 			$table->integer('para')->unsigned();
 			$table->foreign('para')->references('id')->on('clientes');
 			$table->binary('valido');
-				$table->timestamps('created_at');
-			$table->timestamps('updated_at');
+				
 			});
 	}
 
