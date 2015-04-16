@@ -13,8 +13,10 @@ class CreateClientes extends Migration {
 	 */
 	public function up()
 	{
+		public static $timestamps = false;
 		Schema::create('clientes', function(Blueprint $table)
-		{
+		{	
+
 			$table->increments('id')->unsigned();
 			$table->string('nome');
 			$table->string('bi');
