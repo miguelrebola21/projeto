@@ -26,7 +26,7 @@ return [
 	|
 	*/
 
-	'default' => 'mysql',
+	'default' => 'pgsql',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -66,10 +66,13 @@ return [
 
 		'pgsql' => [
 			'driver'   => 'pgsql',
-			'host'     => env('DB_HOST', 'host'),
-			'database' => env('DB_DATABASE', 'forge'),
-			'username' => env('DB_USERNAME', 'forge'),
-			'password' => env('DB_PASSWORD', ''),
+			'host'     => 'ec2-107-22-166-233.compute-1.amazonaws.com',
+			'database' => 'd123477arrvnis',
+			'username' => 'levvrtuhhsfyis',
+			'port'	   => '5432',
+			'password' => 'u04aBcQFITKokV83JR7OadxLi9',
+			'psql'     => 'heroku pg:psql --app young-peak-2652 HEROKU_POSTGRESQL_IVORY',
+			'url'      => 'postgres://levvrtuhhsfyis:u04aBcQFITKokV83JR7OadxLi9@ec2-107-22-166-233.compute-1.amazonaws.com:5432/d123477arrvnis',
 			'charset'  => 'utf8',
 			'prefix'   => '',
 			'schema'   => 'public',
