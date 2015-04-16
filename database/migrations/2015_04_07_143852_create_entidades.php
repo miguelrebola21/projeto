@@ -22,7 +22,7 @@ class CreateEntidades extends Migration {
 			$table->string('cp');
 			$table->string('email')->unique();
 			$table->boolean('valido');
-				
+			$table->timestamps();	
 		});
 	}
 

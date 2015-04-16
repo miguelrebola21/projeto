@@ -19,7 +19,7 @@ class CreateTeste extends Migration {
 		{
 			$table->increments('id')->unsigned();
 			$table->integer('clientesid')->unsigned();
-		
+			$table->timestamps();
 		});
 		//
 	}

@@ -19,7 +19,7 @@ class CreateSuportesTable extends Migration {
 			$table->string('email');
 			$table->string('question');
 			$table->foreign('id_cliente')->references('id')->on('clientes');
-				
+			$table->timestamps();	
 			});
 	}
 

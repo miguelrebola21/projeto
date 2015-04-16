@@ -22,6 +22,7 @@ class CreateHomebankingsTable extends Migration {
 				$table->string('password');
 				$table->rememberToken();
 				$table->binary('valido');
+				$table->timestamps();
 		});
 	}
 

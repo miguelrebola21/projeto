@@ -19,7 +19,7 @@ class CreateTableRolesClientes extends Migration {
                 $table->integer('roles_id')->unsigned();
                 $table->foreign('roles_id')->references('id')->on('roles');
                 $table->foreign('cliente_id')->references('id')->on('clientes');
-               
+                $table->timestamps();
             }
         );
     }

@@ -20,7 +20,7 @@ class CreateContasClientes extends Migration {
 		    $table->foreign('cliente_id')->references('id')->on('clientes');
 		    $table->integer('conta_id')->unsigned();
 		    $table->foreign('conta_id')->references('id')->on('contas');
-			
+			$table->timestamps();
 		});
 	}
 

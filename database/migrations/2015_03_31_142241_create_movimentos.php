@@ -26,7 +26,7 @@ class CreateMovimentos extends Migration {
             $table->binary('valido');
             $table->foreign('destino')->references('id')->on('contas');
             $table->foreign('origem')->references('id')->on('contas');
-				
+			$table->timestamps();	
 		});
 	}
 
