@@ -31,9 +31,6 @@ class HBController extends Controller {
 						$k=$k+1;
 					}
 				$max_role=max($idroles);
-
-				
-
 				$nome=$cliente->nome;
 				$id=$cliente->id;
 				$bi=$cliente->bi;
@@ -66,17 +63,17 @@ class HBController extends Controller {
 
 				switch($max_role){
 
-				case 1:
+				case 2:
 				return view('hbpages.homehb',compact('nome','movimentos','saldocontas','idcontas','correio','bi'));
 				break;
 
-				case 2:
-				case 3:
-				case 4:
+				case 12:
+				case 22:
+				case 32:
 				return view('hbpages.funchomehb',compact('nome','movimentos','saldocontas','idcontas','correio','bi'));
 				break;
 
-				case 5:
+				case 42:
 				return view('hbpages.adminhomehb',compact('nome','movimentos','saldocontas','idcontas','correio','bi'));
 				break;
 
