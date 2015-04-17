@@ -1,9 +1,5 @@
-@extends ('app')
-
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <div class="panel panel-default">
+@extends ('main')
+@section ('content')
         <div class="panel-heading">Insira aqui os seus dados para passar a ter acesso online à sua conta!</div>
         <div class="panel-body">
           @if (count($errors) > 0)
@@ -21,7 +17,7 @@
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <input type="hidden" name="name" value="name">
             <div class="form-group">
-              <label class="col-md-4 control-label">Número de Cliente :</label>
+              <label class="col-md-4 control-label">Número de Cliente (se ainda não é cliente clique <a href="joinus"> aqui</a>!) :</label>
               <div class="col-md-6">
                 <input type="text" class="form-control" name="id_cliente" value="">
               </div>
@@ -57,7 +53,5 @@
             </div>
           </form>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
+  
+@stop
