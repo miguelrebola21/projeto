@@ -74,7 +74,7 @@ class PageController extends Controller {
 			$cli=cliente::create($request->all());
 
 			Roles_Clientes::create(array('cliente_id' => $cli->id, 'roles_id' => '2'));
-
+			\Flash::message('O seu nº de cliente é '.$cli->id.', bem vindo ao Banco M.');
 			return redirect('home');
 	}
 
