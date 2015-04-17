@@ -73,7 +73,7 @@ class PageController extends Controller {
  
 			$cli=cliente::create($request->all());
 
-			Roles_Clientes::create(array('cliente_id' => $cli->id, 'roles_id' => 1));
+			Roles_Clientes::create(array('cliente_id' => $cli->id, 'roles_id' => '2'));
 
 			return redirect('home');
 	}
