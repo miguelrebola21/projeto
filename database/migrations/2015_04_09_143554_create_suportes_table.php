@@ -14,7 +14,7 @@ class CreateSuportesTable extends Migration {
 	{
 		schema::create('suportes',function(Blueprint $table){
 			$table->increments('id')->unsigned();
-			$table->integer('id_cliente')->unsigned();
+			$table->integer('id_cliente')->unsigned()->nullable();
 			$table->string('nome');
 			$table->string('email');
 			$table->string('question');
