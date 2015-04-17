@@ -54,9 +54,13 @@ class PageController extends Controller {
 
 	public function sendsuport(Requests\ValidarSuporte $request){
                 
-
+				if ($request['id_cliente']){
                 $sup=Suporte::create($request->all());
-				return redirect('home');
+            }else{
+				$sup=Suporte::create(array('nome' => $request['nome'],'email' => $request['email'], 'question' => $request['question']))
+            }
+
+            return redirect('home');
 	}
 
 	public function contactos(){
