@@ -20,7 +20,7 @@
 */
 
 require __DIR__.'/../bootstrap/autoload.php';
-SassCompiler::run("scss/", "css/");
+//SassCompiler::run("scss/", "css/");
 /*
 |--------------------------------------------------------------------------
 | Turn On The Lights
