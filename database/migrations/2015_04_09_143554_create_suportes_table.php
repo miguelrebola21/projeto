@@ -18,7 +18,7 @@ class CreateSuportesTable extends Migration {
 			$table->string('nome');
 			$table->string('email');
 			$table->string('question');
-			$table->foreign('id_cliente')->references('id')->on('clientes')->nullable();
+			$table->foreign('id_cliente')->references('id')->on('clientes')->nullable() ;
 			$table->timestamps();	
 			});
 	}
