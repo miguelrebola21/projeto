@@ -44,10 +44,13 @@
               <input type="password" placeholder="Password" name= "password" class="form-control">
             </div>
             <button type="submit" class="btn btn-success">Sign in</button>
+            <button type="button" onclick="location.href = '{{$url = route('signhb')}}'" class="btn btn-info" >Registar</button>
           </form>
-      
-        @endif
+          
 
+          
+        @endif
+      
       </div>
 
      </div> 
