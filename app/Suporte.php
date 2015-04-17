@@ -8,7 +8,8 @@ class Suporte extends Model {
 	protected $fillable = [     
 		'nome',
 		'email',
-		'question'
+		'question',
+		'id_cliente'
 	];
 	protected $table = 'suportes';
 
