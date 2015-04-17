@@ -256,13 +256,13 @@ class AdminController extends Controller {
 		$nc2=Input::get('nc2');
 		$nc3=Input::get('nc3');
 
-		if (isset($nc1)){
+		if (Input::get('nc1')){
 			clientes_conta::create(array('conta_id' => $idconta, 'cliente_id' => $nc1));
 		}
-		if (isset($nc2)){
+		if (Input::get('nc2')){
 			clientes_conta::create(array('conta_id' => $idconta, 'cliente_id' => $nc2));
 		}		
-		if (isset($nc3)){
+		if (Input::get('nc3')){
 			clientes_conta::create(array('conta_id' => $idconta, 'cliente_id' => $nc3));
 		}		
 		
