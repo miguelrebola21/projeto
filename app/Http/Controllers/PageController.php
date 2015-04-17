@@ -57,7 +57,7 @@ class PageController extends Controller {
 				if ($request['id_cliente']){
                 $sup=Suporte::create($request->all());
             }else{
-				$sup=Suporte::create(array('nome' => $request['nome'],'email' => $request['email'], 'question' => $request['question']))
+				$sup=Suporte::create(array('nome' => $request['nome'],'email' => $request['email'], 'question' => $request['question']));
             }
 
             return redirect('home');
